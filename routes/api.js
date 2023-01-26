@@ -9,30 +9,28 @@ router.post('/checkout', function(req, res) {
 		console.log(responseData);
 		console.log(responseData.result);
 		res.json(responseData);
-	});
+	}, req.body);
 });
 
-function request(callback) {
+function request(callback, body) {
 	var path = '/v1/checkouts';
 	var data = querystring.stringify({
 		entityId: process.env.ENTITY_ID,
-		amount: '5.00',
+		amount: body.amount.toString(),
 		currency: 'SAR',
 		paymentType: 'DB',
 		testMode: "EXTERNAL",
-		merchantTransactionId: "whatisthis?",
-		// customer: {
-		// givenName: "Sahal",
-		// surName: "Alzubair",
-		// email: ""
-		// },
-		// billing: {
-		// street1: "fdafsf",
-		// city: "fdafdsf",
-		// state: "fdafsdf",
-		// country: "SA",
-		// }
+		merchantTransactionId: "testId",
+		"customer.email": "sahalalzubair@gmail.com",
+		"customer.givenName": "Sahal",
+		"customer.surname": "Alzubair",
+		"billing.city": "Riyadh",
+		"billing.country": "SA",
+		"billing.state": "Riyadh",
+		"billing.street1": "Almazah",
+		"billing.postcode": "12345",
 	});
+	console.log("Request Data:" + data)
 	var options = {
 		port: 443,
 		host: 'test.oppwa.com',
