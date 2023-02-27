@@ -33,7 +33,7 @@ function request(callback, body) {
 	console.log("Request Data:" + data)
 	var options = {
 		port: 443,
-		host: 'https://eu-prod.oppwa.com',
+		host: 'eu-prod.oppwa.com',
 		path: path,
 		method: 'POST',
 		headers: {
