@@ -19,7 +19,7 @@ function request(callback, body) {
 		amount: body.amount.toString(),
 		currency: 'SAR',
 		paymentType: 'DB',
-		testMode: "EXTERNAL",
+		// testMode: "EXTERNAL",
 		merchantTransactionId: "testId",
 		"customer.email": "sahalalzubair@gmail.com",
 		"customer.givenName": "Sahal",
@@ -33,7 +33,7 @@ function request(callback, body) {
 	console.log("Request Data:" + data)
 	var options = {
 		port: 443,
-		host: 'test.oppwa.com',
+		host: 'https://ew-prod.oppwa.com',
 		path: path,
 		method: 'POST',
 		headers: {
@@ -64,7 +64,7 @@ router.post('/result', function(req, res) {
 function resultRequest(resourcePath, callback) {
 	var path = resourcePath;
 	path += '?entityId=' + process.env.ENTITY_ID;
-	const url = 'https://test.oppwa.com' + path;
+	const url = 'https://eu-prod.oppwa.com' + path;
 	axios
 		.get(url, {
 			headers: {
