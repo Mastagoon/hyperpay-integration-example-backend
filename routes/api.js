@@ -16,7 +16,7 @@ function request(callback, body) {
 	var path = '/v1/checkouts';
 	var data = querystring.stringify({
 		entityId: process.env.ENTITY_ID,
-		amount: "5",
+		amount: body.amount.toString(),
 		currency: 'SAR',
 		paymentType: 'DB',
 		// testMode: "EXTERNAL",
