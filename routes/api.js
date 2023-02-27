@@ -16,7 +16,7 @@ function request(callback, body) {
 	var path = '/v1/checkouts';
 	var data = querystring.stringify({
 		entityId: process.env.ENTITY_ID,
-		amount: body.amount.toString(),
+		amount: "5",
 		currency: 'SAR',
 		paymentType: 'DB',
 		// testMode: "EXTERNAL",
@@ -33,7 +33,7 @@ function request(callback, body) {
 	console.log("Request Data:" + data)
 	var options = {
 		port: 443,
-		host: 'https://ew-prod.oppwa.com',
+		host: 'https://eu-prod.oppwa.com',
 		path: path,
 		method: 'POST',
 		headers: {
